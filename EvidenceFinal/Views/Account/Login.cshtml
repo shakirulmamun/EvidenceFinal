@@ -1,0 +1,39 @@
+﻿@model EvidenceFinal.ViewModels.Membership
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4>Membership</h4>
+        <hr />
+
+        <div>
+            @Html.LabelFor(model => model.UserName)
+            <div>
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName, "")
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Password)
+            <div>
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "")
+            </div>
+        </div>
+        <div>
+
+            <div>
+                <input type="submit" value="Login" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Click to Signup", "Signup")
+</div>
+

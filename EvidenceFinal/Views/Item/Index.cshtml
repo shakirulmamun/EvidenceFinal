@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EvidenceFinal.ViewModels.ItemsVM>
+
+<div>
+    @Html.ActionLink("Add New", "Create", "Item")
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.Name</td>
+                    <td>@x.Price</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Item", new { id = x.Id }, new { }) ||
+                        @Html.ActionLink("Delete", "Delete", "Item", new { id = x.Id }, new { })
+
+
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+

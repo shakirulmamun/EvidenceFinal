@@ -1,0 +1,40 @@
+﻿@model EvidenceFinal.Models.Item
+@{
+    ViewBag.Title = "Create";
+}
+<div id="msg">
+    @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "msg" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.LabelFor(model => model.Id)
+            <div>
+                @Html.EditorFor(model => model.Id)
+                @Html.ValidationMessageFor(model => model.Id, "")
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Name)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "")
+            </div>
+
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Price)
+            <div>
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price, "")
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    }
+
+</div>

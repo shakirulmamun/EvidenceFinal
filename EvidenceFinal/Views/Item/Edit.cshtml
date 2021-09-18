@@ -1,0 +1,46 @@
+﻿@model EvidenceFinal.Models.Item
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4>Items</h4>
+        <hr />
+
+        <div>
+            @Html.LabelFor(model => model.Id)
+            <div>
+                @Html.EditorFor(model => model.Id)
+                @Html.ValidationMessageFor(model => model.Id, "")
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Name)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "")
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Price)
+            <div>
+                @Html.EditorFor(model => model.Price)
+                @Html.ValidationMessageFor(model => model.Price, "")
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

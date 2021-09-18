@@ -1,0 +1,51 @@
+﻿@model EvidenceFinal.Models.User
+
+@{
+    ViewBag.Title = "Signup";
+}
+
+<h2>Signup</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h4>User</h4>
+        <hr />
+
+        <div>
+            @Html.LabelFor(model => model.UserName)
+            <div>
+                @Html.EditorFor(model => model.UserName)
+                @Html.ValidationMessageFor(model => model.UserName, "")
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Password)
+            <div>
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "")
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Signup" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Click to Login", "Login")
+</div>
+
+<script src="~/Scripts/jquery.validate.js"></script>
+
+
+
+
+
